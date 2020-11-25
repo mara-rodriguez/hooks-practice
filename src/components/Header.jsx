@@ -1,21 +1,18 @@
-import React, { useState, useContext } from 'react'
+import React, { useContext } from 'react'
 import ThemeContext from '../context/ThemeContext';
 
 function Header() {
-  const [darkMode, setDarkMode] = useState(false);
-
+  const {darkMode, setDarkMode} = useContext(ThemeContext);
   const handleClick = () => {
-    setDarkMode(!darkMode);
+      setDarkMode(!darkMode);
   }
 
-  const color = useContext(ThemeContext);
-
   return (
-    <div className='Header'>
-      <h1 style={{color}}>Hooks</h1>
-      <button type='button' onClick={handleClick}>{darkMode ? 'DarkMode' : 'LightMode'}</button>
-      {/*onClick{() => setDarkMode ? 'darkMode' : 'LightMode'} --tmb se puede pasar la log dentro del button--*/}
-    </div>
+      <div className="Header" >
+          <h1>React Hooks</h1>
+          <button type="button" onClick={handleClick}>{darkMode ? 'Dark Mode' : 'Light Mode'}</button>
+
+      </div>
   )
 }
 
